@@ -1,0 +1,80 @@
+ng-mock
+
+17000 linhas de códigos -> reescrever em duas semanas (conseguiu em 3 semanas) em 1500 linhas
+
+angularJS / backbone / ember / knockout
+
+minificação / ferramenta grant / agly fi (processo ocorre durante o build da aplicação)
+
+arquitetura e design
+
+diretivas, filtros, serviços
+
+diretivas -> extensões da linguagem html que permitem  a implementação de novos comportamentos
+
+	app / controller / bind / repeat / model / click
+
+		ngApp (Diretiva que define as fronteiras da aplicação)
+		ngController (Vincula um elemento da view ao controller)
+		ngBind (Substitui o elemento por um expressão)
+		ngRepeat (Iterando sobre os itens de uma coleção ou de um objeto)
+		ngModel (Vinculando uma propriedade ao $scope)
+		ngClick (Atribuindo um comportamento ao evento)
+
+	disable / options / class / style / show / hide / if / include
+
+		ngDisable (Desabilita um elemento dinâmicamente)
+		ngOption (Renderiza as opções de um select)
+		ngClass / ngStyle (Aplicando classes e estilos dinamicamente)
+		ngShow / ngHide / ngIf (Exibindo um elemento condicionalmente)
+			ngShow e ngHide apenas econdem o elemento por css
+			ngIf nao gera o elemento (interage com a DOM)
+		ngIncude (Incluir conteúdo dinamicamente)
+
+	required / $valid e $invalid / $pristine e $dirty / 
+	minlength e maxlength / $error / ngPattern
+
+		ngRequired (Define um determinado campo como obrigatório)
+		$valid e $invalid (Consultando a validade de um campo ou formulário)
+		$pristine e $dirty  (Verificando se um formulário ou campo já foi utilizado alguma vez
+		ngMinlength (Define o tamanho mínimo permitido)
+		ngMaxlength (Define o tamanho máximo permitido)
+		$error (Consultando os error de um campo ou formulário
+		ngPattern (Define um RegExp para validar o campo)
+
+filtros -> Transformam o resultado de uma expressão, realizando operações como a formatação de data,
+	a conversão de moeda e ordenação de Array
+		
+	uppercase e lowercase / date / filter / orderBy / currency / number / limitTo
+	
+		uppercase e lowercase (Exibe os valores maiúsculos os minúsculos)
+		date (Formata uma data usando uma máscara)
+		filter (Filtra um array com base em um critério)
+		currency (Converte um número para moeda)
+		number (Formata um número)
+		limitTo (Limita um Array ou uma String)
+
+Integração com back-end
+	$http: O serviço $http do Angular permite a realização de requisições utilizando XMLHttpRequest
+		ou via JSONP
+
+	get (url, config)
+	post (url, data, config)
+	put (url, data, config)
+	delete (url, config)
+	head (url, config)
+	jsonp (url, config)
+
+Organização projeto
+	Inline Style (Tudo no mesmo código)
+	Steriotype Style (Os componentes do mesmo tipo juntos)
+	Specific Style (Um arquivo para cada componente)
+	Domain Style (Arquivos agrupados por domínio / Modularizados)
+
+Serviços: Um serviço é um singleton, ou seja, um objeto único criado na inicialização da aplicação
+		e que está disponível para ser injetado em outros componentes
+	factory, service, value, provider, config (somente serviços do tipo provider podem ser configurados), constant
+	
+		
+ 
+
