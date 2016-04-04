@@ -74,6 +74,9 @@ Organização projeto
 Serviços: Um serviço é um singleton, ou seja, um objeto único criado na inicialização da aplicação
 		e que está disponível para ser injetado em outros componentes
 	factory, service, value, provider, config (somente serviços do tipo provider podem ser configurados), constant
+
+Filtros: Transformam o resultado de uma espressão, realizando operações como a formatação de data, conversão de moeda
+	e a ordenação de Array
 	
 		
  
