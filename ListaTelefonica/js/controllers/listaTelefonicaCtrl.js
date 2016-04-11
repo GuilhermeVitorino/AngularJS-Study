@@ -1,10 +1,16 @@
 angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function ($scope, $filter, uppercaseFilter, $http, 
 	contatosAPI, operadorasAPI, serialGenerator) {
+		console.log("controller id = " + $scope.$id);
 		console.log(serialGenerator.generate());
 		/*$http não esta sendo utilizada, pois esta nos servicos injetados*/
 		$scope.app = "Lista Telefonica";
 
-		$scope.contatos = [
+		$scope.contato = {
+			data: "1034218800000"
+		}; 		
+		
+		$scope.contatos = [];
+				/*[
 			{nome: $filter('uppercase') ("Pedro"),	telefone: "9999-7891", data: new Date(),
 				operadora: {nome: "Oi", codigo: 14, categoria: "Celular"}, 		cor: "blue"},
 			{nome: uppercaseFilter("Ana"), 		telefone: "9923-7892", data: new Date(),
@@ -15,14 +21,16 @@ angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function ($s
 				operadora: {nome: "GVT", codigo: 25, categoria: "Fixo"}, 		cor: "green"},
 			{nome: "Lorena", 	telefone: "9679-7893", data: new Date(),
 				operadora: {nome: "Embratel", codigo: 21, categoria: "Fixo"}, 	cor: "gray"}
-		];
+		];*/
 
-		/*var carregarContatos = function () {
+		var carregarContatos = function () {
 			//$http.get("http://127.0.0.1:8080/ListaTelefonicaRESTService/api/contatos").
 			contatosAPI.getContatos().success(function (data, status) {
-					$scope.contatos = data;
-				});
-		};*/
+				$scope.contatos = data;
+			}).error(function (data, status) {
+				$scope.error = "Não foi possível carregar os dados!";	
+			});
+		};
 
 		$scope.operadoras = [
 			{nome: "Oi", codigo: 14, categoria: "Celular", preco: 2},
@@ -80,5 +88,5 @@ angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function ($s
 			$scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
 		}
 
-		//carregarContatos();
+		carregarContatos();
 	});

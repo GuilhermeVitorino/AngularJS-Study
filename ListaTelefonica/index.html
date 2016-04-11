@@ -4,6 +4,7 @@
 	<title>Lista Telefonica</title>
 	<link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/app.css">
+	<link rel="stylesheet" type="text/css" href="css/ui.css">
 
 	<script src="lib/angular/angular.js"></script>
 	<script src="lib/angular/angular-messages.js"></script>
@@ -23,9 +24,25 @@
 	<script src="js/filters/nameFilter.js"></script>
 	<script src="js/filters/ellipsisFilter.js"></script>
 
+	<script src="js/directives/uiAlertDirective.js"></script>
+	<script src="js/directives/uiDateDirective.js"></script>
+
 </head>
 <body ng-controller="listaTelefonicaCtrl">
 	<div class="jumbotron">
+
+		{{$id}} <!-- id do scope-->
+
+		<ui-alert title="Ops, aconteceu um problema!" message="error">
+			{{$id}} <!-- id do scope-->
+			{{error}} <!-- funciona mesmo sendo de outro scope -->
+		</ui-alert>
+
+		<ui-alert title="Série sobre AngularJS" message="error">
+			{{$id}}
+			Episódio 10  - Criando Diretivas - Parte 1
+		</ui-alert>
+		
 		<!-- <h4 ng-bind="app"></h4> -->
 		<h3>{{app}}</h3>
 		{{contatos}}
@@ -74,10 +91,14 @@
 		Esse formulário é invalido: {{contatoForm.$invalid}}<br/>
 		<form name="contatoForm">
 			<input class="form-control" type="text" name="nome"	ng-model="contato.nome" 
-			placeholder="nome" ng-required="true" ng-minlength="10"/>
+			placeholder="Nome" ng-required="true" ng-minlength="10"/>
 			
-			<input class="form-control" type="text" name="telefone" placeholder="telefone"
+			<input class="form-control" type="text" name="telefone" placeholder="Telefone"
 				ng-model="contato.telefone"  ng-required="true" ng-pattern="/^\d{4,5}-\d{4}$/" />
+
+			{{contato.data}}	
+			<input class="form-control" type="text" name="data" placeholder="Data"
+				ng-model="contato.data" ui-date/>
 			
 			<select class="form-control" ng-model="contato.operadora" 
 				ng-options="operadora.nome + ' ( ' + (operadora.preco | currency) + ' ) ' 

@@ -8,6 +8,8 @@ minificação / ferramenta grant / agly fi (processo ocorre durante o build da a
 
 arquitetura e design
 
+TWO WAY DATA BINDING
+
 diretivas, filtros, serviços
 
 diretivas -> extensões da linguagem html que permitem  a implementação de novos comportamentos
@@ -77,6 +79,45 @@ Serviços: Um serviço é um singleton, ou seja, um objeto único criado na inic
 
 Filtros: Transformam o resultado de uma espressão, realizando operações como a formatação de data, conversão de moeda
 	e a ordenação de Array
+
+Diretivas: Criando o Directive Definition Object
+	template, templateUrl, replace, restrict, scope, transclude
+
+	template e teplateUrl: Especifica o template ou a url do template que deverá ser incluido
+		dentro do elemento que estiver usando a diretiva
+	
+	replace: substitui o elemento pelo template da diretiva
+	
+	restrict: restringe o módulo de utilização da diretiva ao atributo, elemento, classe e comentário
+		ou ainda uma combinação deles. Caso não seja definido, o padrão é que a diretiva seja
+		atribuída pelo atributo
+		Tipos de restrição: 
+			A - Diretiva restrita ao atributo do elemento
+			E - Diretiva restrita ao elemento
+			C - Diretiva restrita a classe do elemento
+			M - Diretiva restrita ao comentário do elemento
+
+	scope: Por padrão uma diretiva compratilha o mesmo scope de onde é utilizada.
+		Para aumentar seu potencial de reuso, podemos isolar seu scope, passando
+		os dados necessários por parâmetro.
+
+	@: Vincula o valor de atributo diretamente a uma propriedade do scope da diretiva
+
+	=: Cria um vinculo bi-direcional entre uma propriedade do scope do template a uma
+		propriedade do scope da diretivas (nesse caso, scope do controller e scope da diretiva)
+
+	transclude: encapsula elementos dentro de uma diretiva, criando um scope não isolado
+
+	-- // --
+
+	link: executada depois de o template ter sido compilado, podemos utilizá-la para interagir com a DOM,
+	tratando eventos ou mesmo para definir o comportamento associado com a lógica da diretiva
+	
+	require: estabelece um vinculo com outra diretiva, interagindo por meio do controller que é um dos
+	parâmetros da função link
+
+	ESTUDAR: API ngModel, element
+		 
 	
 		
  
