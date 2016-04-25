@@ -117,6 +117,10 @@ Diretivas: Criando o Directive Definition Object
 	parâmetros da função link
 
 	ESTUDAR: API ngModel, element
+
+	Propriedade Controller: Permite a definição de uma API que pode ser compartilhada com outras diretivas
+
+	ESTUDAR: $compile	
 		 
 	
 		
