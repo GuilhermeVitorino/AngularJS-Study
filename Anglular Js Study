@@ -120,7 +120,17 @@ Diretivas: Criando o Directive Definition Object
 
 	Propriedade Controller: Permite a definição de uma API que pode ser compartilhada com outras diretivas
 
-	ESTUDAR: $compile	
+	ESTUDAR: $compile
+
+	Módulo: Coleção de componentes, ou seja, um conjunto de controllers, directives, filters, services, entre
+	outros tipos tipo de componente utilizados pela aplicação.
+
+	$templateCache: Na primeira vez que um template é carregado, ele é armazenado em cache 
+	e acessivel por meio do serviço $templatechache
+
+	ESTUDAR: $templatecache, Grunt
+
+	ngRoute: templateUrl, controller, resolve (resolvendo dependências)
 		 
 	
 		

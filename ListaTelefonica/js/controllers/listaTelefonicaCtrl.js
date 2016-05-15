@@ -1,5 +1,9 @@
-angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function ($scope, $filter, uppercaseFilter, $http, 
+angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function ($scope, /*contatos, operadoras,*/ $filter, uppercaseFilter, $http, 
 	contatosAPI, operadorasAPI, serialGenerator) {
+		
+		/*$scope.contatos = contatos.data;
+		$scope.operadoras = operadoras.data;*/
+
 		console.log("controller id = " + $scope.$id);
 		console.log(serialGenerator.generate());
 		/*$http não esta sendo utilizada, pois esta nos servicos injetados*/
@@ -9,28 +13,45 @@ angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function ($s
 			data: "1034218800000"
 		}; 		
 		
-		$scope.contatos = [];
-				/*[
-			{nome: $filter('uppercase') ("Pedro"),	telefone: "9999-7891", data: new Date(),
+		$scope.contatos =
+				[
+			{id: 1, nome: $filter('uppercase') ("Pedro"),	telefone: "9999-7891", data: new Date(),
 				operadora: {nome: "Oi", codigo: 14, categoria: "Celular"}, 		cor: "blue"},
-			{nome: uppercaseFilter("Ana"), 		telefone: "9923-7892", data: new Date(),
+			{id: 2, nome: uppercaseFilter("Ana"), 		telefone: "9923-7892", data: new Date(),
 				operadora: {nome: "Vivo", codigo: 15, categoria: "Celular"},  	cor: "red"},
-			{nome: "Marcela", 	telefone: "9199-7893", data: new Date(),
+			{id: 3, nome: "Marcela", 	telefone: "9199-7893", data: new Date(),
 				operadora: {nome: "Tim", codigo: 41, categoria: "Celular"}, 	cor: "yellow"},
-			{nome: "Camila", 	telefone: "9349-7895", data: new Date(),
+			{id: 4, nome: "Camila", 	telefone: "9349-7895", data: new Date(),
 				operadora: {nome: "GVT", codigo: 25, categoria: "Fixo"}, 		cor: "green"},
-			{nome: "Lorena", 	telefone: "9679-7893", data: new Date(),
+			{id: 5, nome: "Lorena", 	telefone: "9679-7893", data: new Date(),
 				operadora: {nome: "Embratel", codigo: 21, categoria: "Fixo"}, 	cor: "gray"}
-		];*/
+		];
 
-		var carregarContatos = function () {
+		/*var carregarContatos = function () {
 			//$http.get("http://127.0.0.1:8080/ListaTelefonicaRESTService/api/contatos").
 			contatosAPI.getContatos().success(function (data, status) {
 				$scope.contatos = data;
 			}).error(function (data, status) {
 				$scope.error = "Não foi possível carregar os dados!";	
 			});
-		};
+		};*/
+
+		/*var generateSerial = function (contatos) {
+			contatos.forEach(function (item) {
+				item.serial = serialGenerator.generate();
+			});
+		};*/
+
+		/*var carregarContatos = function () {
+			contatosAPI.getContatos().success(function (data) {
+				data.forEach(function (item) {
+					item.serial = serialGenerator.generate();
+				});
+				$scope.contatos = data;
+			}).error(function (data, status) {
+				$scope.error = "Não foi possível carregar os dados!";	
+			});
+		};*/
 
 		$scope.operadoras = [
 			{nome: "Oi", codigo: 14, categoria: "Celular", preco: 2},
@@ -87,6 +108,7 @@ angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function ($s
 			$scope.criterioDeOrdenacao = campo;
 			$scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
 		}
-
-		carregarContatos();
-	});
+		
+		//generateSerial($scope.contatos);
+		//carregarContatos();
+});
