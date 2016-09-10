@@ -40,12 +40,20 @@ angular.module("listaTelefonica").config(function ($routeProvider) {
 			/*contato: function (contatosAPI, $route) {
 				return contatosAPI.getContato($route.current.params.id);
 			}*/
-			contato: function () {
-				contato = {id: 1, nome: "Pedro", telefone: "9999-7891", data: new Date(),
-				operadora: {nome: "Oi", codigo: 14, categoria: "Celular"}, cor: "blue"};
-				return contato;
+			contato: function ($route, $http) {
+				if ($route.current.params.id != 5) {
+					contato = {id: 1, nome: "Pedro", telefone: "9999-7891", data: new Date(),
+					operadora: {nome: "Oi", codigo: 14, categoria: "Celular"}, cor: "blue"};
+					return contato;
+				} else {
+					return $http.get('https://forcarerro');
+				}
 			}
 		}	
+	});
+
+	$routeProvider.when("/error", {
+		templateUrl: "view/error.html"
 	});
 	
 	$routeProvider.otherwise({redirectTo: "/contatos"});
